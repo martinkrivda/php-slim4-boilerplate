@@ -79,7 +79,7 @@ cp .env.example .env
 
 docker build -t php-db-boilerplate .
 
-docker run --rm -p 8080:80 --env-file .env php-db-boilerplate
+docker run --rm -p 8080:80 --env-file .env php-slim4-boilerplate
 ```
 
 Visit:
