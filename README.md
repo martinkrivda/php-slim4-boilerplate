@@ -164,7 +164,7 @@ docker compose -f docker-compose.local-with-db.yaml up --build
    - Port: `3306`
    - Username: `app`
    - Password: `app`
-   - Database: `php-boilerplate-db`
+   - Database: `php-slim4-boilerplate-db`
 
 Windows (HeidiSQL):
 
@@ -180,16 +180,16 @@ docker compose -f docker-compose.local-with-db.yaml up --build
    - Port: `3306`
    - User: `app`
    - Password: `app`
-   - Database: `php-boilerplate-db`
+   - Database: `php-slim4-boilerplate-db`
 
 ## Create DB and user (MariaDB)
 
 Example SQL to create a database and user for this app:
 
 ```sql
-CREATE DATABASE `php-boilerplate-db` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE `php-slim4-boilerplate-db` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 CREATE USER 'app'@'%' IDENTIFIED BY 'change_me';
-GRANT ALL PRIVILEGES ON `php-boilerplate-db`.* TO 'app'@'%';
+GRANT ALL PRIVILEGES ON `php-slim4-boilerplate-db`.* TO 'app'@'%';
 FLUSH PRIVILEGES;
 ```
 
