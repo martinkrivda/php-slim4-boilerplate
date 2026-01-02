@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="php-slim4-boilerplate">
+  <description>PHP_CodeSniffer ruleset.</description>
+
+  <file>public</file>
+  <file>src</file>
+  <file>config</file>
+
+  <arg name="colors"/>
+  <arg name="extensions" value="php"/>
+  <arg name="cache" value=".phpcs-cache"/>
+
+  <rule ref="PSR12"/>
+</ruleset>

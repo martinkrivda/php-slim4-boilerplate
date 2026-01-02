@@ -1,0 +1,8 @@
+services:
+  app:
+    container_name: php-slim4-boilerplate
+    build: .
+    ports:
+      - "8080:80"
+    env_file:
+      - .env

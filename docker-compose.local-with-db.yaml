@@ -1,0 +1,48 @@
+services:
+  app:
+    container_name: php-slim4-boilerplate
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: mariadb
+      DB_PORT: 3306
+      DB_NAME: php-slim4-boilerplate-db
+      DB_USER: app
+      DB_PASS: app
+    depends_on:
+      - mariadb
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'php -r "exit(trim(@file_get_contents(''http://127.0.0.1/health.php'')) === ''ok'' ? 0 : 1);"',
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  mariadb:
+    container_name: php-slim4-boilerplate-mariadb
+    image: mariadb:12.1
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_DATABASE: php-slim4-boilerplate-db
+      MARIADB_USER: app
+      MARIADB_PASSWORD: app
+      MARIADB_ROOT_PASSWORD: root
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mariadb-admin ping -h 127.0.0.1 -uroot -p$${MARIADB_ROOT_PASSWORD} --silent",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  mariadb-data:

@@ -1,0 +1,37 @@
+services:
+  app:
+    container_name: php-slim4-boilerplate
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: mariadb
+      DB_PORT: 3306
+      DB_NAME: php-slim4-boilerplate-db
+      DB_USER: app
+      DB_PASS: app
+    volumes:
+      - ./public:/var/www/app/public
+      - ./src:/var/www/app/src
+      - ./app:/var/www/app/app
+      - ./config:/var/www/app/config
+      - ./templates:/var/www/app/templates
+      - ./var:/var/www/app/var
+    depends_on:
+      - mariadb
+
+  mariadb:
+    container_name: php-slim4-boilerplate-mariadb
+    image: mariadb:12.1
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_DATABASE: php-slim4-boilerplate-db
+      MARIADB_USER: app
+      MARIADB_PASSWORD: app
+      MARIADB_ROOT_PASSWORD: root
+    volumes:
+      - mariadb-data:/var/lib/mysql
+
+volumes:
+  mariadb-data:

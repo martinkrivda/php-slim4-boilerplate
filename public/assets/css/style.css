@@ -1,0 +1,8 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "bmewburn.vscode-intelephense-client",
+    "ikappas.phpcs",
+    "ms-azuretools.vscode-docker",
+    "redhat.vscode-yaml",
+    "editorconfig.editorconfig",
+    "eamodio.gitlens",
+    "mblode.twig-language-2"
+  ]
+}
